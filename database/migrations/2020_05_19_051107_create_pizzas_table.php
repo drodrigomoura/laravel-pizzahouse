@@ -19,7 +19,7 @@ class CreatePizzasTable extends Migration
             $table->string('type',250);
             $table->string('base',250);
             $table->string('name',250);
-            $table->json('toppings');
+            $table->longText('toppings');
         });
     }
 

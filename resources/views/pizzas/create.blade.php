@@ -7,6 +7,7 @@
         @csrf
         <label for="name">Tu Nombre:</label>
         <input type="text" id="name" name="name">
+        <div class="text-danger" data-error="wrong">{{ $errors->first('name') }}</div>
 
         <label for="type">Selecciona el tipo de Pizza:</label>
         <select name="type" id="type">
@@ -15,6 +16,7 @@
             <option value="jamon y Morron">Jamon y Morron</option>
             <option value="española">Española</option>
         </select>
+        <div class="text-danger" data-error="wrong">{{ $errors->first('type') }}</div>
 
         <label for="base">Selecciona el tipo de Borde:</label>
         <select name="base" id="base">
@@ -23,6 +25,8 @@
             <option value="rellena con Jamon">Rellena con Jamon</option>
             <option value="clasica">Clasica</option>
         </select>
+        <div class="text-danger" data-error="wrong">{{ $errors->first('base') }}</div>
+
         <fieldset>
             <label>Ingredientes extra:</label>
             <input type="checkbox" name="toppings[]" value="champiñones">Champiñones<br/>

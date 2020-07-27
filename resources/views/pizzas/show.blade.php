@@ -7,9 +7,13 @@
     <p class="base">Base - {{ $pizza->base }}</p>
     <p class="toppings">Ingredientes extra:</p>
     <ul>
+        @isset($pizza->toppings)
         @foreach($pizza->toppings as $topping)
-            <li>{{ $topping }}</li>
+        <li>{{ $topping }}</li>
         @endforeach
+        @else
+        <span>No seleccionó ningún Ingrediente Extra</span>
+        @endisset
     </ul>
     <form action="{{ route('pizzas.destroy', $pizza->id) }}" method="POST">
         @csrf
@@ -17,5 +21,5 @@
         <button>Terminar la orden</button>
     </form>
 </div>
-<a href="{{ route('pizzas.index') }}" class="back"><- Volver</a>
-@endsection
+<a href="{{ route('pizzas.index') }}" class="back">
+    <- Volver</a> @endsection

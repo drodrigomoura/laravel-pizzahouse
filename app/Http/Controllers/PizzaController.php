@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Pizza;
+use App\Pizzas\Pizza;
+use App\Pizzas\Requests\CreatePizzaRequest;
 
 class PizzaController extends Controller
 {
@@ -31,7 +33,7 @@ class PizzaController extends Controller
         return view('pizzas.create'); 
     }
 
-    public function store(){
+    public function store(CreatePizzaRequest $request){
         $pizza = new Pizza();
 
         $pizza->name = request('name');
